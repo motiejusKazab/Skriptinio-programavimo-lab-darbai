@@ -1,48 +1,562 @@
-<!--Motiejus Kazabuckas EDIf-24/2-->
+<!-- 
+  Motiejus Kazabuckas, EDIf-24/2
+  CV puslapis - Skriptinis programavimas, 8 laboratorinis darbas
+  Bootstrap CV šablonas iš bookirapmade.com
+-->
 <!DOCTYPE html>
 <html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Motiejus Kazabuckas CV puslapis - Dirbtinio intelekto sistemų studentas">
+    <meta name="author" content="Motiejus Kazabuckas">
+    <meta name="keywords" content="CV, portfolio, programavimas, dirbtinis intelektas">
     <title>Mano CV</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+            color: white;
+            padding: 100px 0;
+            margin-top: 56px; /* Compensation for fixed navbar */
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .resume-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .resume-date {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .resume-institution {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .skill-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+        }
+        
+        .media-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .resume-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .resume-date {
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Motiejus Kazabuckas</h1>
-        
-        <h5>Dirbtinio intelekto sistemos</h5>
-        
-        <p>
-            Sigma sigma boy. SKibidi rizz. 67 67
-        </p>
-        
-        <p>
-            <a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML Pamoka</a>
-        </p>
-        
-        <div class="image-section">
-            <img src="https://tse3.mm.bing.net/th/id/OIP.nSIbtW490fhvCkbKYZutlAHaE6?cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Mano svajonių darbo pozicija - Programuotojas">
+    <!-- Bootstrap Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-circle me-2"></i>Motiejus Kazabuckas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Apie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resume">Aprašymas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Paslaugos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontaktai</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <h3>Dominančios IT Sritys:</h3>
-        <ol>
-            <li><strong>Dirbtinis Intelektas (AI) ir Mašininis Mokymas</strong></li>
-            <li><b>Debesų Paskutinės (Cloud Computing)</b></li>
-            <li>Kibernetinis Saugumas</li>
-        </ol>
-        
-        <h3>Norėčiau Išmokti Studijų Metu:</h3>
-        <ul>
-            <li><em>Python Programavimas Automatikoje</em></li>
-            <li><i>Web Development su React ir Node.js</i></li>
-            <li>Mobilinės Aplikacijos Programavimas</li>
-        </ul>
-        
-        <h3>Pabrauktas tekstas:</h3>
-        <p>
-            <u>Šis visas paragrafas yra pabrauktas. Tačiau tai gali būti klaidinantis, nes naršyklėse pabrauktas tekstas dažniausiai reiškia nuorodą (link). Todėl u žymę reikia naudoti atsargiai, nes vartotojai gali susimaiš ir pagalvoti, kad tai nuoroda.</u>
-        </p>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Motiejus Kazabuckas</h1>
+                    <p class="hero-subtitle">Dirbtinio Intelekto Sistemų Studentas</p>
+                    <p class="lead mb-4">
+                        Savęs mokantis programuotojas, suinteresuotas dirbtinio intelekto, mašininio mokymosi 
+                        ir duomenų analizės technologijomis. Studijuoju Vilniaus Gedimino Technikos Universitete.
+                    </p>
+                    <div class="mt-4">
+                        <span class="badge bg-light text-dark me-2 p-2">Python</span>
+                        <span class="badge bg-light text-dark me-2 p-2">MATLAB</span>
+                        <span class="badge bg-light text-dark me-2 p-2">JavaScript</span>
+                        <span class="badge bg-light text-dark me-2 p-2">Mašininis mokymasis</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center" 
+                         style="width: 250px; height: 250px;">
+                        <i class="fas fa-user-tie fa-6x text-light"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Apie Mane</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="fs-5">
+                        Esu Vilniaus Gedimino Technikos Universiteto dirbtinio intelekto sistemų studentas, 
+                        gilinantis į praktinius dirbtinio intelekto ir mašininio mokymosi taikymus. 
+                        Mano akademinė kelionė apima matematinę analizę, programavimą ir statistiką.
+                    </p>
+                    <p class="fs-5">
+                        Turiu solidų matematikos ir programavimo pagrindą, paremtą MATLAB, Python ir 
+                        JavaScript praktika. Siekiu kaupti praktinę patirtį projektuose, susijusiuose su 
+                        dirbtinio intelekto sistemomis, duomenų inžinerija ir mašininio mokymosi modelių kūrimu.
+                    </p>
+                    <p class="fs-5">
+                        Skiriu laiką savarankiškam mokymuisi, dalyvauju praktinėse ugdymo veiklose ir tikiu, 
+                        kad nuolatinis mokymasis ir įsipareigojimas yra pagrindiniai sėkmės veiksniai.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Aprašymas</h2>
+            
+            <!-- Education -->
+            <div class="mb-5">
+                <h3 class="h4 mb-4 text-primary">
+                    <i class="fas fa-graduation-cap me-2"></i>Studijos
+                </h3>
+                
+                <div class="resume-item">
+                    <div class="resume-header">
+                        <h4 class="h5">Bakalauro studijos - Dirbtinio Intelekto Sistemos</h4>
+                        <span class="resume-date">2022 - Dabar</span>
+                    </div>
+                    <p class="resume-institution">
+                        <i class="fas fa-university me-2"></i>Vilniaus Gedimino Technikos Universitetas
+                    </p>
+                    <p>
+                        Tiriu dirbtinio intelekto, mašininio mokymosi, duomenų analizės ir statistikos 
+                        pagrindus. Tobulinu programavimo įgūdžius C, Python ir MATLAB kalbomis.
+                    </p>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-header">
+                        <h4 class="h5">Scenarijaus Programavimas</h4>
+                        <span class="resume-date">2024 Rudenį</span>
+                    </div>
+                    <p class="resume-institution">
+                        <i class="fas fa-laptop-code me-2"></i>Vilniaus Tech - 2 kurso dėstytojo kursas
+                    </p>
+                    <p>
+                        Išsamiai išstudijau MATLAB, HTML, CSS ir JavaScript technologijas. Sukūriau 
+                        kelis praktinės reikšmės projektus, įskaitant duomenų analizės vizualizacijas 
+                        ir interaktyvias sąsajas.
+                    </p>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-header">
+                        <h4 class="h5">Lyderystė ir Komandinis Darbas</h4>
+                        <span class="resume-date">2023 - 2024</span>
+                    </div>
+                    <p class="resume-institution">
+                        <i class="fas fa-users me-2"></i>Akademinės veiklos dalyvavimas
+                    </p>
+                    <p>
+                        Aktyvus dalyvavimas grupinėse laboratorinėse ir projektavimo veikloje, 
+                        kurioje praktikavau bendravimą, problemų sprendimą ir kooperacinį darbą.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div>
+                <h3 class="h4 mb-4 text-primary">
+                    <i class="fas fa-cogs me-2"></i>Pagrindinės Kompetencijos
+                </h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <h5 class="h6">
+                                <i class="fas fa-code me-2"></i>Programavimo Kalbos
+                            </h5>
+                            <p class="mb-0">Python, MATLAB, JavaScript, HTML, CSS, SQL</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <h5 class="h6">
+                                <i class="fas fa-brain me-2"></i>Dirbtinis Intelektas
+                            </h5>
+                            <p class="mb-0">Mašininis mokymasis, duomenų analizė, statistika</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <h5 class="h6">
+                                <i class="fas fa-tools me-2"></i>Įrankiai ir Teknologijos
+                            </h5>
+                            <p class="mb-0">Git, VS Code, Jupyter Notebook, MATLAB IDE</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="skill-item">
+                            <h5 class="h6">
+                                <i class="fas fa-comments me-2"></i>Tarpasmeninės Gebos
+                            </h5>
+                            <p class="mb-0">Komandinis darbas, komunikacija, problemų sprendimas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="lead mb-5">Mano atliktų laboratorinių darbų grafikai ir projektu pavyzdžiai</p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="assets/img/matlab-exam-scores.png" 
+                             alt="Studentų egzamino įvertinimai pagal dalykus - stulpelinė diagrama" 
+                             class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="h5">Studentų Egzamino Rezultatai</h4>
+                            <p>Stulpelinė diagrama, rodanti keturių dalykų egzamino rezultatus šešiems studentams.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="assets/img/matlab-discrete-results.png" 
+                             alt="Diskretinė egzamino rezultatų diagrama - taškinė diagrama" 
+                             class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="h5">Diskretinės Egzamino Rezultatai</h4>
+                            <p>Taškinė diagrama, demonstruojanti egzamino rezultatų pasiskirstymą grafine forma.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="assets/img/matlab-functions.png" 
+                             alt="Trigonometrinių ir eksponentinių funkcijų grafikai" 
+                             class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="h5">Matematinių Funkcijų Vizualizacija</h4>
+                            <p>Trigonometrinių ir eksponentinių funkcijų grafikų palyginimas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="assets/img/matlab-grade-distribution.png" 
+                             alt="Dalykiniai studentų rezultatai ir vidutinis įvertinimas" 
+                             class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="h5">Dalykinių Rezultatų Analizė</h4>
+                            <p>Keturių dalykų rezultatų analizė ir kiekvieno studento vidutinis įvertinimas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Media Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Paslaugos ir Medija</h2>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="media-card">
+                        <h3 class="h5 mb-3">
+                            <i class="fas fa-video me-2"></i>Vaizdo Įrašas - Darbas su Kompiuteriu
+                        </h3>
+                        <div class="ratio ratio-16x9">
+                            <video controls class="rounded">
+                                <source src="assets/media/typing-video.mp4" type="video/mp4">
+                                Jūsų naršyklė nepalaiko video elemento.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="media-card">
+                        <h3 class="h5 mb-3">
+                            <i class="fab fa-youtube me-2"></i>YouTube Vaizdo Įrašas
+                        </h3>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/BoUVIhtqjAw" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen
+                                    class="rounded">
+                            </iframe>
+                        </div>
+                        <p class="mt-2 mb-0 small">Programavimo tutorial: Python pagrindai</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="media-card">
+                        <h3 class="h5 mb-3">
+                            <i class="fas fa-volume-up me-2"></i>Garso Įrašas - Laikrodžio Takt
+                        </h3>
+                        <audio controls class="w-100">
+                            <source src="assets/media/clock-ticking.mp3" type="audio/mpeg">
+                            Jūsų naršyklė nepalaiko audio elemento.
+                        </audio>
+                        <p class="mt-2 small">Laikrodžio tiksintuvų garso įrašas - raminanti aplinka darbui.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Kontaktai</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h4 class="h5 text-primary">
+                                    <i class="fas fa-envelope me-2"></i>El. Paštas
+                                </h4>
+                                <p class="fs-5">
+                                    <a href="mailto:motiejus.kazabuckas@student.vilniustech.lt" class="text-decoration-none">
+                                        motiejus.kazabuckas@student.vilniustech.lt
+                                    </a>
+                                </p>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <h4 class="h5 text-primary">
+                                    <i class="fas fa-university me-2"></i>Institucija
+                                </h4>
+                                <p class="fs-5">
+                                    Vilniaus Gedimino Technikos Universitetas<br>
+                                    Dirbtinio Intelekto Sistemos<br>
+                                    EDIf-24/2
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="#" class="btn btn-primary me-2">
+                                <i class="fab fa-github me-2"></i>GitHub
+                            </a>
+                            <a href="#" class="btn btn-secondary me-2">
+                                <i class="fab fa-linkedin me-2"></i>LinkedIn
+                            </a>
+                            <a href="#" class="btn btn-dark">
+                                <i class="fas fa-file-pdf me-2"></i>Atsisiųsti CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Motiejus Kazabuckas. Visos teisės saugomos.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Sukurta VILNIUS TECH | Skriptinis programavimas</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
